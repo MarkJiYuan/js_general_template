@@ -1,0 +1,36 @@
+{
+  "name": "js_general_template",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "lodash": "^4.17.21",
+    "winston": "^3.8.2",
+    "tsc-alias": "^1.8.6"
+  },
+  "engines": {
+    "node": ">=16.17.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.59.5",
+    "@typescript-eslint/parser": "^5.27.1",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "openapi-typescript-codegen": "^0.24.0",
+    "prettier": "^2.5.1",
+    "ts-node": "^10.9.1",
+    "typechain": "^8.1.1",
+    "typescript": "^4.6.2"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "build:watch": "tsc && (concurrently \"tsc -w\" \"tsc-alias -w\")",
+    "build:types": "npx openapi --input ./api.yaml --output ./src/lib --request ./openapi_request.ts -c axios"
+  }
+}
